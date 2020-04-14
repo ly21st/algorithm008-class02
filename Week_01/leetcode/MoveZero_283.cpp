@@ -37,6 +37,6 @@ public:
 
 
 
-int mnain() {
+int main() {
     cout <<"hello"<<endl;
 }
