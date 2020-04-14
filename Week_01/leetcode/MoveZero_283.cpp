@@ -19,7 +19,7 @@ using namespace std;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
-public:
+public:   
     void moveZeroes(vector<int>& nums) {
         auto nums_len = nums.size();
         for (auto i= 0, j = 0; j < nums_len; j++) {
@@ -34,7 +34,6 @@ public:
     }
 };
 //leetcode submit region end(Prohibit modification and deletion)
-
 
 
 int main() {
