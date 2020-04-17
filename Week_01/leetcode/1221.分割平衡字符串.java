@@ -28,3 +28,24 @@ class Solution {
 }
 // @lc code=end
 
+
+
+// class Solution {
+//     public int balancedStringSplit(String s) {
+//         Stack<Character> stack = new Stack<Character>();
+//         int count = 0;
+//         for(int i = 0; i < s.length(); i++){
+//             char c = s.charAt(i);
+//             if(stack.isEmpty() || c == stack.peek()) {
+//                 stack.push(c);
+//             }
+//             else{
+//                 stack.pop();
+//             }
+//             if(stack.isEmpty()) {
+//                 count++;
+//             }
+//         }
+//         return count;
+//     }
+// }
