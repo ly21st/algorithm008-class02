@@ -67,8 +67,8 @@ Iterator<E> iterator()，返回一个迭代器
 
 ### 插入元素
 
-···  
-   public boolean offer(E o)
+``` 
+     public boolean offer(E o)
  181:   {
  182:     if (o == null)
  183:       throw new NullPointerException();
@@ -81,15 +81,15 @@ Iterator<E> iterator()，返回一个迭代器
  190: 
  191:     return true;
  192:   }
- ···
+ ```
  
  先查找空闲槽位，时间复杂度为O(n),赋值O(1),
  调整位置O(log(N))
  
  ### 取出元素
  
- ···
- public E peek()
+ ```
+     public E peek()
  195:   {
  196:     return used == 0 ? null : storage[0];
  197:   }
@@ -102,13 +102,13 @@ Iterator<E> iterator()，返回一个迭代器
  204:     remove(0);
  205:     return result;
  206:   }
- ···
+ ```
  
  时间复杂度O(1)
  
  ### 删除元素：
  
- ···
+ ```
  208:   public boolean remove(Object o)
  209:   {
  210:     if (o != null)
@@ -124,19 +124,20 @@ Iterator<E> iterator()，返回一个迭代器
  220:       }
  221:     return false;
  222:   }
- ···
+ ```
  
  ### 调整容量大小
  
- ···
-  330:   void resize()
+ ```
+ 330:   void resize()
  331:   {
  332:     E[] new_data = (E[]) new Object[2 * storage.length];
  333:     System.arraycopy(storage, 0, new_data, 0, storage.length);
  334:     storage = new_data;
  335:   }
  
- ···
+ ```
+ 
  
 
 
