@@ -22,25 +22,124 @@
 
 # 分析 Queue 和 Priority Queue 的源码
 
-## Queue分析
+## 分析Queue
+
+    Queue是一个接口，定义了添加，删除，返回头元素的方法。
+	
 ### 提供了以下方法：
-* 添加元素
+* 添加元素：
 
     add(E e) 空间不足抛异常
 	
 	offer(E e) 空间不足不抛异常
 	
-* 删除元素
+* 删除元素：
 
     remove() 队列为空抛异常
 	
 	poll()   队列为空不抛异常
 	
-* 返回队列头元素
+* 返回队列头元素：
 
     element() 队列为空抛异常
 	
 	peek()    队列为空返回null
+
+## 分析Priority Queue
+
+PriorityQueue是一个是类，继承了抽象类AbstractQueue。
+
+里面有数据成员表示容量大小，以及当前的使用数量。底层存储结构是数组。
+
+用户可以提供一个比较器，比较器为空时使用自然排序。
+
+### 初始化几种方式：
+
+* PriorityQueue(Collection<? extends E> c)，Collection<? extends E>对象
+* PriorityQueue(int cap)， 指定容量
+* PriorityQueue(int cap, Comparator<? super E> comp)，指定容量，带上比较器
+* PriorityQueue(PriorityQueue<? extends E> c)，另一个优先队列
+* PriorityQueue(SortedSet<? extends E> c)，SortedSet<? extends E>对象
+
+### 迭代器
+
+Iterator<E> iterator()，返回一个迭代器
+
+### 插入元素
+
+···  
+   public boolean offer(E o)
+ 181:   {
+ 182:     if (o == null)
+ 183:       throw new NullPointerException();
+ 184: 
+ 185:     int slot = findSlot(-1);
+ 186: 
+ 187:     storage[slot] = o;
+ 188:     ++used;
+ 189:     bubbleUp(slot);
+ 190: 
+ 191:     return true;
+ 192:   }
+ ···
+ 
+ 先查找空闲槽位，时间复杂度为O(n),赋值O(1),
+ 调整位置O(log(N))
+ 
+ ### 取出元素
+ 
+ ···
+ public E peek()
+ 195:   {
+ 196:     return used == 0 ? null : storage[0];
+ 197:   }
+ 198: 
+ 199:   public E poll()
+ 200:   {
+ 201:     if (used == 0)
+ 202:       return null;
+ 203:     E result = storage[0];
+ 204:     remove(0);
+ 205:     return result;
+ 206:   }
+ ···
+ 
+ 时间复杂度O(1)
+ 
+ ### 删除元素：
+ 
+ ···
+ 208:   public boolean remove(Object o)
+ 209:   {
+ 210:     if (o != null)
+ 211:       {
+ 212:         for (int i = 0; i < storage.length; ++i)
+ 213:           {
+ 214:             if (o.equals(storage[i]))
+ 215:               {
+ 216:                 remove(i);
+ 217:                 return true;
+ 218:               }
+ 219:           }
+ 220:       }
+ 221:     return false;
+ 222:   }
+ ···
+ 
+ ### 调整容量大小
+ 
+ ···
+  330:   void resize()
+ 331:   {
+ 332:     E[] new_data = (E[]) new Object[2 * storage.length];
+ 333:     System.arraycopy(storage, 0, new_data, 0, storage.length);
+ 334:     storage = new_data;
+ 335:   }
+ 
+ ···
+ 
+
+
 
 
 
