@@ -20,6 +20,23 @@
 >> 6. 学习方法很重要。控制每道题目的时间。
 
 
-> # 分析 Queue 和 Priority Queue 的源码
+# 分析 Queue 和 Priority Queue 的源码
+
+## Queue分析
+### 提供了以下方法：
+* 添加元素
+    add(E e) 空间不足抛异常
+	
+	offer(E e) 空间不足不抛异常
+	
+* 删除元素
+    remove() 队列为空抛异常
+	poll()   队列为空不抛异常
+	
+* 返回队列头元素
+    element() 队列为空抛异常
+	peek()    队列为空返回null
+
+
 
 
