@@ -40,19 +40,22 @@ class Solution {
 
 // 递归方法
 // class Solution {
-// public int minDepth(TreeNode root) {
-// if (root == null) return 0;
-// int leftDepth;
-// int rifghtDepth;
-// if (root.left == null && root.right == null) return 1;
-// if (root.left == null) return 1 + minDepth(root.right);
-// if (root.right == null) return 1 + minDepth(root.left);
-// leftDepth = minDepth(root.left);
-// rifghtDepth = minDepth(root.right);
-// return 1 + Math.min(leftDepth, rifghtDepth);
+//     public int minDepth(TreeNode root) {
+//         if (root == null)
+//             return 0;
+//         int leftDepth;
+//         int rifghtDepth;
+//         if (root.left == null && root.right == null)
+//             return 1;
+//         if (root.left == null)
+//             return 1 + minDepth(root.right);
+//         if (root.right == null)
+//             return 1 + minDepth(root.left);
+//         leftDepth = minDepth(root.left);
+//         rifghtDepth = minDepth(root.right);
+//         return 1 + Math.min(leftDepth, rifghtDepth);
+//     }
 // }
-// }
-
 
 
 // 递归方法2，顺推法

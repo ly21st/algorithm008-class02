@@ -23,7 +23,7 @@ class Solution {
         return max;
     }
 
-    public int maxDepth(TreeNode root, int depth) {
+    public void maxDepth(TreeNode root, int depth) {
         if (root == null) return 0; 
         depth++;
         int leftDep = maxDepth(root.left);

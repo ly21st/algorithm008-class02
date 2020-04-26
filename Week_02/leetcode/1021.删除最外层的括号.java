@@ -13,7 +13,7 @@ class Solution {
         char []cArr = S.toCharArray();
         int len = cArr.length;
         for (j = 0; j < len; j++) {
-            if (S.charAt(j) == '(') {
+            if (cArr[j] == '(') {
                 count++;
             } else {
                 count--;
