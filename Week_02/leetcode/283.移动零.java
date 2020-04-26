@@ -8,13 +8,15 @@
 class Solution {
     public void moveZeroes(int[] nums) {
         int len = nums.length;
-        for (int i = 0, j = 0; j < len; j++) {
+        int i, j;
+        for (i = 0, j = 0; j < len; j++) {
             if (nums[j] != 0) {
-                int tmp = nums[i];
-                nums[i] = nums[j];
-                nums[j] = tmp;
+                if (i != j) {
+                    nums[i] = nums[j];
+                    nums[j] = 0;
+                }
                 i++;
-            } 
+            }
         }
     }
 }
@@ -55,6 +57,22 @@ class Solution {
 //             } else {
 //                 zeroCount++;
 //             }
+//         }
+//     }
+// }
+
+
+
+// class Solution {
+//     public void moveZeroes(int[] nums) {
+//         int len = nums.length;
+//         for (int i = 0, j = 0; j < len; j++) {
+//             if (nums[j] != 0) {
+//                 int tmp = nums[i];
+//                 nums[i] = nums[j];
+//                 nums[j] = tmp;
+//                 i++;
+//             } 
 //         }
 //     }
 // }
